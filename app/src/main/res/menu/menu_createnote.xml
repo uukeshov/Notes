@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.uukeshov.lec8appnote.CreateNoteActivity">
+    <item
+        android:id="@+id/save"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_save"
+        android:title="Сохранить"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/cancel"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_cancel"
+        android:title="cancel"
+        app:showAsAction="ifRoom"
+        />
+</menu>
