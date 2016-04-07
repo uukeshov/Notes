@@ -6,12 +6,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     NotesListAdapter adapter;
     ListView list;
     GPSTracker gps;
+    private AdView mAdView;
     private static final String LOG_TAG = "MainActivityLog";
     //Log.d(LOG_TAG, "--- MainActivityLog ---" + db.getAllNotes());
 
@@ -37,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
+
+        mAdView = (AdView) findViewById(R.id.ad_view);
+        Log.d(LOG_TAG,"Start advertisment");
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        // Start loading the ad in the background.
+        mAdView.loadAd(adRequest);
+        Log.d(LOG_TAG, "Finish advetisment");
     }
 
     @Override
@@ -67,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Заметок нет", Toast.LENGTH_SHORT).show();
             }
             this.onStart();
-        } else if (id==R.id.show) {
+        } else if (id == R.id.show) {
 
             Intent it = new Intent(this, MainMapsActivity.class);
             it.putExtra("Notes", getIntent().getData());
