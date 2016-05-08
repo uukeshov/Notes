@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mAdView = (AdView) findViewById(R.id.ad_view);
-        Log.d(LOG_TAG,"Start advertisment");
+        Log.d(LOG_TAG, "Start advertisment");
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
